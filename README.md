@@ -1,3 +1,8 @@
+
+
+https://github.com/user-attachments/assets/1f206c5a-8eb1-4dfd-901d-3ea0606a5391
+
+
 # TalentLens: AI Recruitment & CV Screening Platform
 
 Upload CVs, compare them against a job description, extract skills and get a **ranked shortlist
