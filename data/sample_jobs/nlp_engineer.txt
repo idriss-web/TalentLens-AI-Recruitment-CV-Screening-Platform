@@ -1,0 +1,19 @@
+Senior NLP Engineer
+
+About the role
+We are building language understanding features for a document intelligence product. You will design, fine-tune and ship transformer-based models that extract, classify and summarize text at scale.
+
+Requirements:
+- 4+ years of experience in machine learning or NLP
+- Strong Python and PyTorch skills
+- Hands-on experience with Hugging Face Transformers and fine-tuning BERT-style models
+- Experience with named entity recognition and text classification
+- Experience building and deploying REST APIs (FastAPI or Flask)
+- Solid understanding of model evaluation and metrics
+- Master's degree in Computer Science, Linguistics or a related field
+
+Nice to have:
+- Experience with LLMs, RAG pipelines and vector databases
+- Docker and cloud deployment (AWS or GCP)
+- Publications at ACL, EMNLP or similar venues
+- spaCy and semantic search experience

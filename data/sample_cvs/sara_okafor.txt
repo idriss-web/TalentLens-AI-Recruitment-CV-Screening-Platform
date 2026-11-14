@@ -1,0 +1,22 @@
+Sara Okafor
+sara.okafor@example.com
+
+PROFILE
+Full-stack web developer with 7 years of experience building e-commerce sites. Interested in moving into AI.
+
+EXPERIENCE
+Full-Stack Developer, ShopLine (Jan 2021 - Present)
+- JavaScript, TypeScript and Node.js storefronts; MySQL databases; REST APIs.
+- Git, Docker and Jenkins pipelines.
+
+Web Developer, PixelForge (Jun 2019 - Dec 2020)
+- WordPress and PHP projects for small businesses.
+
+EDUCATION
+Bachelor's degree in Information Systems, 2019
+
+CERTIFICATES
+Completed an online machine learning course (Coursera).
+
+SKILLS
+JavaScript, TypeScript, Node.js, SQL, Docker, Git, CI/CD

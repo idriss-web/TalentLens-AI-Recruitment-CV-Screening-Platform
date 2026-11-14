@@ -1,0 +1,20 @@
+Liam Chen
+liam.chen@example.com
+
+PROFILE
+Recent graduate and junior NLP engineer. Strong academic background in deep learning and language models; 1 year of industry experience.
+
+EXPERIENCE
+Junior NLP Engineer, TextBridge (Sep 2025 - Present)
+- Fine-tuned BERT for text classification with Hugging Face and PyTorch.
+- Built a small FastAPI service to serve a named entity recognition model.
+
+Research Intern, University AI Lab (Jun 2024 - Aug 2024)
+- Experiments on summarization with transformer models; NLTK and spaCy preprocessing.
+
+EDUCATION
+M.Sc. Artificial Intelligence, 2025
+B.Sc. Computer Science, 2023
+
+SKILLS
+Python, PyTorch, Hugging Face, BERT, NLP, FastAPI, spaCy, NLTK, Text Classification, Named Entity Recognition, Git

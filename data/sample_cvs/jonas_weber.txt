@@ -1,0 +1,20 @@
+Jonas Weber
+jonas.weber@example.com
+
+PROFILE
+AI Developer focused on LLM applications and retrieval-augmented generation. 4 years of experience shipping production AI features.
+
+EXPERIENCE
+AI Developer, Cobalt Labs (Jun 2023 - Present)
+- Built RAG assistants with LangChain, OpenAI GPT models and Pinecone; strong prompt engineering practice.
+- Exposed services through FastAPI, containerized with Docker, deployed on GCP with GitHub Actions CI/CD.
+- Fine-tuned Mistral and Llama models using LoRA and PEFT.
+
+Backend Developer, Nimbus Apps (Aug 2021 - May 2023)
+- Python and Django REST APIs, PostgreSQL, Git workflows.
+
+EDUCATION
+B.Sc. Computer Science, TU Munich, 2021
+
+SKILLS
+Python, FastAPI, Django, LangChain, RAG, LLMs, Prompt Engineering, Pinecone, FAISS, Docker, Kubernetes, GCP, Git, SQL

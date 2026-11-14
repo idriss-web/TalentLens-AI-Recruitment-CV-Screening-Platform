@@ -1,0 +1,25 @@
+Amina El Idrissi
+amina.elidrissi@example.com | Casablanca, Morocco
+
+SUMMARY
+NLP Engineer with 6 years of experience building transformer-based language systems for document understanding and search.
+
+EXPERIENCE
+Senior NLP Engineer, DocuMind (Mar 2022 - Present)
+- Fine-tuned BERT and RoBERTa models with Hugging Face Transformers for named entity recognition and text classification.
+- Built a semantic search service with sentence-transformers and FAISS, served via FastAPI and Docker on AWS.
+- Designed model evaluation pipelines and A/B testing for production NLP models.
+- Built RAG pipelines with LangChain for internal knowledge assistants.
+
+NLP Engineer, LinguaTech (Jan 2020 - Feb 2022)
+- Developed text summarization and sentiment analysis models in Python and PyTorch.
+- Used spaCy and NLTK for preprocessing; wrote REST APIs with Flask.
+
+EDUCATION
+M.Sc. Computer Science (Natural Language Processing), Mohammed V University, 2019
+
+PUBLICATIONS
+Published papers at ACL and EMNLP workshops on low-resource Arabic NLP.
+
+SKILLS
+Python, PyTorch, Hugging Face, BERT, spaCy, FastAPI, Flask, Docker, AWS, Git, SQL, LLMs

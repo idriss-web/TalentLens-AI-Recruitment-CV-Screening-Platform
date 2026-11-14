@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block title %}Results · TalentLens{% endblock %}
+{% block content %}
+<div class="row" style="justify-content:space-between">
+  <div>
+    <h1>Ranked candidates</h1>
+    <p class="sub">{{ result.candidates|length }} candidate{{ '' if result.candidates|length == 1 else 's' }} ranked ·
+      semantic engine: <b>{{ 'Transformers' if result.backend == 'transformers' else 'TF-IDF (fallback)' }}</b></p>
+  </div>
+  <div class="row">
+    <button class="btn ghost" type="button" id="csv">Download CSV</button>
+    <a class="btn" href="{{ url_for('main.index') }}">New screening</a>
+  </div>
+</div>
+
+{% for e in errors %}<div class="err">{{ e }}</div>{% endfor %}
+{% if result.backend_note %}<div class="note">{{ result.backend_note }}</div>{% endif %}
+
+<div class="card">
+  <h2>What the job asks for</h2>
+  <div class="grid2">
+    <div><b>Required</b><br>
+      {% for s in result.job.required_skills %}<span class="chip">{{ s }}</span>{% else %}<span class="muted">None detected: scoring falls back to semantic fit.</span>{% endfor %}</div>
+    <div><b>Preferred</b><br>
+      {% for s in result.job.preferred_skills %}<span class="chip pref">{{ s }}</span>{% else %}<span class="muted">None detected.</span>{% endfor %}</div>
+  </div>
+  <p class="hint" style="margin-bottom:0">
+    {% if result.job.min_years %}Minimum experience: {{ '%g'|format(result.job.min_years) }}+ years · {% endif %}
+    {% if result.job.min_education_rank %}Education: {{ result.job.min_education_label }} or above · {% endif %}
+    Weights:
+    {% for k, v in result.weights.items() %}{{ k }} {{ '%g'|format(v) }}%{{ ', ' if not loop.last }}{% endfor %}
+  </p>
+</div>
+
+{% for c in result.candidates %}
+<div class="card">
+  <div class="cand-head">
+    <div class="rank">{{ c.rank }}</div>
+    <div class="grow">
+      <h2>{{ c.name }}</h2>
+      <div class="muted" style="font-size:13px">{{ c.filename }}{% if c.email %} · {{ c.email }}{% endif %} · ~{{ '%g'|format(c.experience_years) }} yrs · {{ c.education }}</div>
+    </div>
+    <div class="score">
+      <b>{{ '%g'|format(c.score) }}</b><span class="muted">/100</span><br>
+      <span class="verdict {{ 'v-strong' if c.score >= 75 else 'v-good' if c.score >= 55 else 'v-partial' if c.score >= 35 else 'v-weak' }}">{{ c.verdict }}</span>
+    </div>
+  </div>
+
+  <div class="bars">
+    {% for k, comp in c.components.items() %}
+    <div class="bar">
+      <span>{{ comp.label }}</span>
+      <div class="track"><div class="fill" style="width:{{ comp.score }}%"></div></div>
+      <span class="muted">{{ '%g'|format(comp.points) }} / {{ '%g'|format(comp.weight) }} pts</span>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div>
+    {% for s in c.matched_required %}<span class="chip ok">✓ {{ s }}</span>{% endfor %}
+    {% for s in c.missing_required %}<span class="chip miss">✗ {{ s }}</span>{% endfor %}
+    {% for s in c.matched_preferred %}<span class="chip pref">★ {{ s }}</span>{% endfor %}
+  </div>
+
+  <div class="grid2" style="margin-top:12px">
+    <div><b>Why this score</b>
+      <ul class="why">{% for r in c.reasons %}<li>{{ r }}</li>{% endfor %}</ul></div>
+    <div>{% if c.warnings %}<b>Gaps &amp; flags</b>
+      <ul class="why warn">{% for w in c.warnings %}<li>{{ w }}</li>{% endfor %}</ul>{% endif %}</div>
+  </div>
+
+  <details>
+    <summary>All detected skills &amp; shared keywords</summary>
+    {% for cat, skills in c.skills_by_category.items() %}
+      <p style="margin:8px 0 2px"><b>{{ cat }}</b></p>
+      {% for s in skills %}<span class="chip">{{ s }}</span>{% endfor %}
+    {% endfor %}
+    {% if c.shared_terms %}<p style="margin:12px 0 2px"><b>Top terms shared with the job description</b></p>
+      {% for t in c.shared_terms %}<span class="chip">{{ t }}</span>{% endfor %}{% endif %}
+  </details>
+</div>
+{% endfor %}
+
+<p class="hint">Scores support, not replace, human judgement. Review the reasoning, and check CVs for context the parser can't see.</p>
+
+<script id="data" type="application/json">{{ result.candidates | tojson }}</script>
+<script>
+  document.getElementById('csv').addEventListener('click', () => {
+    const rows = JSON.parse(document.getElementById('data').textContent);
+    const esc = v => '"' + String(v ?? '').replace(/"/g, '""') + '"';
+    const head = ['Rank','Name','File','Email','Score','Verdict','Experience yrs','Education','Matched required','Missing required','Matched preferred'];
+    const lines = [head.map(esc).join(',')].concat(rows.map(r => [
+      r.rank, r.name, r.filename, r.email, r.score, r.verdict, r.experience_years, r.education,
+      r.matched_required.join('; '), r.missing_required.join('; '), r.matched_preferred.join('; ')
+    ].map(esc).join(',')));
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([lines.join('\n')], {type:'text/csv'}));
+    a.download = 'candidate_ranking.csv'; a.click();
+  });
+</script>
+{% endblock %}

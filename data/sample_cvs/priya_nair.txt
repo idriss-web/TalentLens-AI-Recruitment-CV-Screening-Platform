@@ -1,0 +1,23 @@
+Priya Nair
+priya.nair@example.com
+
+SUMMARY
+Machine learning engineer with 3 years of experience in computer vision and tabular modeling; recently exploring NLP.
+
+EXPERIENCE
+Machine Learning Engineer, VisionWorks (Sep 2023 - Present)
+- Trained image classification models in TensorFlow and PyTorch; OpenCV pipelines for defect detection.
+- Packaged models with Docker and served them behind Flask APIs.
+- Built dashboards with Pandas and NumPy.
+
+Data Analyst, RetailCo (Jul 2022 - Aug 2023)
+- SQL, Python, scikit-learn models for demand forecasting.
+
+EDUCATION
+B.Tech Computer Engineering, 2022
+
+PROJECTS
+Sentiment analysis of product reviews using a fine-tuned DistilBERT (side project).
+
+SKILLS
+Python, TensorFlow, PyTorch, scikit-learn, Computer Vision, OpenCV, Flask, Docker, SQL, Pandas

@@ -1,0 +1,19 @@
+AI Developer (LLM Applications)
+
+About the role
+Join our product team to build LLM-powered features: assistants, retrieval-augmented search and automation workflows used by thousands of customers.
+
+Requirements:
+- 3+ years of professional software development experience
+- Proficiency in Python and building APIs with FastAPI or Flask
+- Experience with LLMs, prompt engineering and RAG
+- Experience with LangChain or similar orchestration frameworks
+- Familiarity with vector databases such as FAISS, Pinecone or pgvector
+- Comfortable with Docker and Git
+- Bachelor's degree in Computer Science or equivalent
+
+Nice to have:
+- Fine-tuning (LoRA / PEFT) of open-source models
+- Kubernetes and CI/CD
+- Experience on AWS, GCP or Azure
+- MLOps tooling such as MLflow

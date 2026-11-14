@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Screen candidates against a job</h1>
+<p class="sub">Paste a job description, upload CVs, and get a ranked shortlist with the reasoning behind every score.</p>
+
+{% for e in errors or [] %}<div class="err">{{ e }}</div>{% endfor %}
+
+<form method="post" action="{{ url_for('main.screen') }}" enctype="multipart/form-data">
+  <div class="card">
+    <div class="row" style="justify-content:space-between;margin-bottom:8px">
+      <label for="job_description" style="margin:0">1. Job description</label>
+      {% if jobs %}
+      <select id="preset" style="width:auto" aria-label="Load a sample job">
+        <option value="">Load a sample job…</option>
+        {% for name in jobs %}<option value="{{ name }}">{{ name }}</option>{% endfor %}
+      </select>
+      {% endif %}
+    </div>
+    <textarea id="job_description" name="job_description" placeholder="Paste the job description here. Use headings like “Requirements” and “Nice to have” so skills are classified correctly.">{{ job_text or "" }}</textarea>
+    <p class="hint">Tip: skills under “Nice to have / Preferred / Bonus” count as preferred; everything else as required.</p>
+  </div>
+
+  <div class="card">
+    <label for="cvs">2. Candidate CVs</label>
+    <input id="cvs" type="file" name="cvs" multiple accept=".pdf,.docx,.txt,.md">
+    <p class="hint">PDF, DOCX, TXT or MD. Files are processed in memory and are not stored.</p>
+    <label class="row" style="font-weight:400;margin-top:10px">
+      <input type="checkbox" name="use_samples"> Also include the 6 built-in sample CVs (quick demo)
+    </label>
+  </div>
+
+  <button class="btn" type="submit">Rank candidates</button>
+</form>
+
+<script id="jobs-data" type="application/json">{{ jobs | tojson }}</script>
+<script>
+  const jobs = JSON.parse(document.getElementById('jobs-data').textContent);
+  const preset = document.getElementById('preset');
+  if (preset) preset.addEventListener('change', e => {
+    if (jobs[e.target.value]) document.getElementById('job_description').value = jobs[e.target.value];
+  });
+</script>
+{% endblock %}

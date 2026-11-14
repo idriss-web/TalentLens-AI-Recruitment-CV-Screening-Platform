@@ -1,0 +1,20 @@
+Carlos Mendes
+carlos.mendes@example.com
+
+PROFILE
+Research scientist with a PhD in Computational Linguistics. 8 years of experience in NLP research and applied machine learning.
+
+EXPERIENCE
+Research Scientist, Aletheia AI (Feb 2021 - Present)
+- Led pre-training and fine-tuning of transformer language models in PyTorch; LLM evaluation and benchmarking.
+- Named entity recognition, text classification and machine translation research.
+- Published papers at ACL, EMNLP and NeurIPS.
+
+Postdoctoral Researcher, University of Lisbon (Sep 2018 - Jan 2021)
+- Computational linguistics, seq2seq models, annotation projects with Label Studio.
+
+EDUCATION
+PhD Computational Linguistics, University of Lisbon, 2018
+
+SKILLS
+Python, PyTorch, Hugging Face, Transformers, BERT, NLP, Machine Translation, Model Evaluation, Fine-tuning, Data Annotation, Git
